@@ -1254,8 +1254,10 @@ static bStatus_t simpleProfile_WriteAttrCB( uint16 connHandle, gattAttribute_t *
 	  #if (defined HAL_LCD) && (HAL_LCD == TRUE)
       		HalLcdWriteString( "ChangePwdSuccessful",HAL_LCD_LINE_3);
          #endif // (defined HAL_LCD) && (HAL_LCD == TRUE)
-
           notifyApp = SIMPLEPROFILE_CHAR_PWD_SAVED_LEN;
+          notification=1;
+          SimpleProfile_SetParameter( SIMPLEPROFILE_CHAR4, sizeof(uint8), &notification);
+  
         }
              
         break;
